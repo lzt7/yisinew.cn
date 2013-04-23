@@ -1,0 +1,7 @@
+name = 意思网公会模块
+description = 意思网公会模块。包含公会的一些常用函数。
+core = 7.x
+package = YiSi
+files[] = yisi_guild.module
+dependencies[] = yisi
+

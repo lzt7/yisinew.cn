@@ -1,0 +1,39 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function yisi_guild_menu() {  
+  $items['guild'] = array(
+    'title' => t('guild'),
+    'description' => t('guild'),
+    'page callback' => 'guild',
+    'file' => 'guild.pages.inc',
+    'access arguments' => array('guild view'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function yisi_guild_permission() {
+  return array(
+    'guild view' =>  array(
+      'title' => t('guild view'),
+    ),
+  );
+}
+/**
+ * hook_theme()
+ */
+
+function yisi_guild_theme(){
+	return array(
+		'guild' => array(
+        'template' => 'guild',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'yisi_guild') . '/tpl',
+		),
+	);
+}

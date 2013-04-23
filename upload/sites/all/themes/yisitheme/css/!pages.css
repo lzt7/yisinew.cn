@@ -1,0 +1,865 @@
+/**
+
+ * @file
+
+ * Page Styling
+
+ *
+
+ * Style the markup found in page.tpl.php. Also includes some styling of
+
+ * miscellaneous Drupal elements that appear in the $content variable, such as
+
+ * ul.links, .pager, .more-link, etc.
+
+ */
+
+
+
+
+
+/*
+
+ * Body
+
+ */
+
+
+
+body {
+
+  margin: 0;
+
+  padding: 0;
+
+  font-family: '微软雅黑',Tahoma,Geneva,sans-serif; line-height:150%;
+
+}
+
+
+
+ul{ margin:0px; padding:0px;}
+
+li{ list-style-image:none; list-style:none;}
+
+
+
+a{ text-decoration:none; color: #666; }
+
+#page { background:url(../images/header_bg.jpg) repeat-x;
+
+}
+
+
+
+h2 {
+
+font-size: 17px;
+
+font-family: "微软雅黑","宋体",Geneva,sans-serif;
+
+text-shadow: 1px 1px #CCC;
+
+color: #383838;
+
+}
+
+
+
+/*
+
+ * The skip-link link will be completely hidden until a user tabs to the link.
+
+ * See the element-focusable rule in system.base.css.
+
+ */
+
+
+
+#skip-link {
+
+  margin: 0;
+
+}
+
+#skip-link a,
+
+#skip-link a:visited {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 2px 0 3px 0;
+
+  text-align: center;
+
+  background-color: #666;
+
+  color: #fff;
+
+}
+
+
+
+/*
+
+ * Header
+
+ */
+
+ 
+
+ .header_index{ margin-left:auto; margin-right:auto; min-width:980px; background:url(../images/header_bg.jpg) repeat-x;}
+
+ 
+
+#header { margin:0 auto; /* height:164px; */ padding-left:0px; padding-right:0px;   background: #EEE url(../images/noisy.gif);
+
+}
+
+.region-header-top{ width:980px; margin:0 auto; height:40px;  }
+
+.region-header-top .block-block{ margin-bottom:0px;}
+
+#header .header_block_top{background: url(../images/NavigationShadowBottom.png) repeat-x 50% 100% #F2F2F2;
+
+background-size: 2200px 20px;
+
+}
+
+.index_top{background:url(../images/header_top_bg.jpg) repeat-x ;}
+
+
+
+#header .header_logo{ width:980px;  margin:0 auto; }
+
+
+
+#header #block-block-1,#header #block-block-2{ float:left;}
+
+#header #block-block-1 a,.region-header-top #block-block-2 a{ line-height:40px; margin-right:10px; color:#999; font-size:16px;}
+
+#header #block-system-user-menu{ float:right;}
+
+#header #block-system-user-menu li{ float:left; margin-left:5px; margin-right:5px; list-style-image:none; list-style:none; padding-top:10px; }
+
+#header #block-system-user-menu li a{ height: 25px; display:block; text-align:center; background: #E60007 top left repeat-x;
+
+width: 70px; line-height:25px;  -webkit-border-radius: 6px;border-radius: 15px;-webkit-border-radius: 15px;-moz-border-radius: 15px; color:#FFF; font-size:14px;}
+
+
+
+#header #block-system-user-menu li a:hover{background: #CCC;background: rgba(0, 0, 0, .3);border-radius: 15px;-webkit-border-radius: 15px;-moz-border-radius: 15px;color: white;
+
+}
+
+
+
+#header .Agreement span{ display:inline-block; margin-right:8px;}
+
+#header .Agreement span a{ font-size:12px; color: #4f2525;}
+
+.clear{ clear:both;}
+
+
+
+#logo { /* Wrapping link for logo */
+
+  float: left; /* LTR */
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+#logo img {
+
+  vertical-align: bottom;
+
+}
+
+
+
+#name-and-slogan { /* Wrapper for website name and slogan */
+
+  float: left;
+
+}
+
+
+
+#site-name { /* The name of the website */
+
+  margin: 0;
+
+  font-size: 2em;
+
+  line-height: 1.5em;
+
+}
+
+#site-name a:link,
+
+#site-name a:visited {
+
+  color: #000;
+
+  text-decoration: none;
+
+}
+
+#site-name a:hover,
+
+#site-name a:focus {
+
+  text-decoration: underline;
+
+}
+
+
+
+#site-slogan { /* The slogan (or tagline) of a website */
+
+  margin: 0;
+
+  font-size: 1em;
+
+}
+
+
+
+.region-header { /* Wrapper for any blocks placed in the header region */ float:right; 
+
+  
+
+}
+
+.region-header .block-block{ margin-bottom:10px;}
+
+
+
+.region-header #block-block-2{ }
+
+/*
+
+ * Main (container for everything else)
+
+ */
+
+
+
+#main {
+
+	background: url(../images/contentareabg.gif) repeat-x top; 
+
+width: 100%;
+
+float: left;
+
+}
+
+
+
+.main_banner{background: url(../images/pattern_bg.jpg) repeat; height:300px; padding-top:20px;}
+.main_banner_content{ width:980px; margin:0 auto;}
+#main .main_banner #content1{ width:980px; margin:0 auto;}
+
+
+
+
+
+#main #screenshot {
+
+float: right;
+
+height: 300px;
+
+padding-top: 20px;
+
+width: 550px;
+
+overflow: hidden;
+
+}
+
+#home-video-box {
+
+height: 300px;
+
+width: 488px;
+
+background: url(../images/fedena-home-image.png) no-repeat center center;
+
+overflow: hidden;
+
+float: right;
+
+}
+
+#play-button {
+
+width: 74px;
+
+height: 74px;
+
+background: url(../images/play_button.png) no-repeat 0px center;
+
+display: block;
+
+margin: 100px auto;
+
+cursor: pointer;
+
+}
+
+#content1 h3 {
+
+color: #BF0000;
+
+width: 380px;
+
+padding-top: 20px;
+
+line-height: 32px;
+
+}
+
+#buy_now_button {
+
+width: 150px;
+
+display: block;
+
+height: 38px; line-height:38px; color:#FFF; text-align:center; font-weight:bold;
+
+float: left;
+
+background: url(../images/buy_sprite.png) 0 0 no-repeat;
+
+}
+
+#buy_now_button:hover {
+
+background: url(../images/buy_sprite.png) -170px 0 no-repeat;
+
+width: 150px;
+
+display: block;
+
+height: 38px;
+
+}
+
+
+
+
+
+#main .page-wrapper{ width:980px; margin:0 auto;}
+
+
+
+/*
+
+ * Content
+
+ */
+
+
+
+#content { min-height:400px;
+
+}
+
+
+
+.index_news{
+
+background: white url(../images/header-pattern.png) repeat-x;
+
+height: 40px;
+
+border-bottom: 1px #CCC solid;
+
+overflow: hidden; margin-top:8px; margin-bottom:10px;
+
+}
+
+.index_news .title{ line-height:40px; font-size:16px; padding-left:10px; margin-right:15px; }
+
+.index_news span{ color:#FFF; line-height:40px; font-size:12px;}
+
+.index_content_1 .left{ float:left; width:70%;}
+
+.index_content_1 .right{width:29%; float:right}
+
+.index_content_1 .left .left_1 h2{background: transparent url(../images/border-right.png) repeat-x left center; }
+
+
+
+.index_content_1 .left .left_1 .index_title,.Listado_345 h2{font-size:16px; margin:0px; padding:0px;
+
+color:#F00;}
+
+.index_content_1 .left .left_1 .left_1_table{ padding-bottom:10px; margin-bottom:10px;}
+
+.border-top {
+
+background: transparent url(../images/bordertop.png) repeat-x scroll left bottom;
+
+}
+
+.table_class,.table_class_to{ margin:0px; margin-bottom:10px; }
+
+.table_class_to{ border:#E4E4E4 1px solid; font-size:14px; }
+
+.table_class_to tr{ height:35px; line-height:35px; border-bottom:#E4E4E4 1px solid;}
+
+.table_class_to tr td,.table_class_to tr th{ padding-left:10px;}
+
+.table_class tr td{ border:#E4E4E4 1px solid;}
+
+
+
+
+
+.borderrihgtnone{ border-right:red 1px solid; border-left:red 1px solid; height:41px; line-height:30px;}
+
+.right_1{background: #FEFEFE url(../images/widgetbg-top.png) no-repeat top center;
+
+border: 1px solid #E4E4E4;
+
+
+
+ -webkit-box-shadow: rgba(255,255,255,0.496094) 0px 1px 0px inset;
+
+
+
+
+
+border-top-left-radius: 4px 4px;
+
+border-top-right-radius: 4px 4px; margin-bottom:15px;}
+
+
+
+.right_1 .right_1_bottom{padding-bottom: 5px; background: url(../images/widgetbg-bottom.png) no-repeat bottom center; padding-left:10px; padding-right:10px;  }
+
+.right_1 .right_1_bottom .index_title{background: url(../images/popular-selected.png) no-repeat top center; text-align:center; font-size:16px; padding: 10px 0;
+
+text-align: center; color:#F00;}
+
+.index_title_none{ text-align:center; font-size:16px; padding: 10px 0;
+
+text-align: center; color:#F00;}
+
+.right_1 .right_1_bottom .system_ranking li{ line-height:35px;}
+
+.right_1 .right_1_bottom .system_ranking li .ranking_top{ display: inline-block; background:url(../images/li_button.png); width:24px; height:24px; line-height:24px; color:#FFF; text-align:center; vertical-align:middle;}
+
+.right_1 .right_1_bottom .system_ranking li .ranking{ display: inline-block; background:url(../images/li_button_to.png); width:24px; height:24px; line-height:24px; color:#333; text-align:center; vertical-align:middle;}
+
+ .right_1 .right_1_bottom .system_ranking li .name{ margin-left:20px; margin-right:10px;}
+
+ .right_1 .right_1_bottom .system_ranking li .multiple{ margin-right:10px;}
+
+.region-highlighted {
+
+}
+
+
+
+.Listado_345 {
+
+background: url(../images/fondo_345.jpg)   repeat-x;
+
+
+
+padding: 20px; padding-top:0px;
+
+}
+
+.Listado_345 div{ margin-bottom:10px; margin-top:5px;}
+
+.Listado_345 a.link-title {
+
+font-size: 14px;
+
+color: black;
+
+line-height: 15px;
+
+}
+
+.Listado_345 a.link-excerpt {
+
+font-size: 11px;
+
+color: #666;
+
+line-height: 14px;
+
+}
+
+
+
+
+
+.breadcrumb { /* The path to the current page in the form of a list of links */
+
+}
+
+.breadcrumb ol {
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+.breadcrumb li {
+
+  display: inline;
+
+  list-style-type: none;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
+
+h1.title, /* The title of the page */
+
+h2.node-title, /* Title of a piece of content when it is given in a list of content */
+
+h2.block-title, /* Block title */
+
+h2.title, /* Comment section heading */
+
+h2.comment-form, /* Comment form heading */
+
+h3.title { /* Comment title */
+
+  margin: 0;
+
+}
+
+
+
+tr.even { /* Some tables have rows marked even or odd. */
+
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+
+}
+
+
+
+tr.odd {
+
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+
+}
+
+
+
+div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+
+  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
+
+}
+
+div.messages ul {
+
+  margin-top: 0;
+
+  margin-bottom: 0;
+
+}
+
+
+
+div.status { /* Normal priority messages */
+
+}
+
+
+
+div.warning,
+
+tr.warning { /* Medium priority messages */
+
+  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
+
+}
+
+
+
+div.error,
+
+tr.error { /* High priority messages. See also the .error declaration below. */
+
+}
+
+
+
+.error { /* Errors that are separate from div.messages status messages. */
+
+  /* color: #e55; */ /* Drupal core uses a #e55 background */
+
+}
+
+
+
+.warning { /* Warnings that are separate from div.messages status messages. */
+
+  /* color: #e09010; */ /* Drupal core uses a #e09010 background */
+
+}
+
+
+
+.tabs { /* See also the tabs.css file. */
+
+}
+
+
+
+.region-help { /* Help text on a page */
+
+}
+
+
+
+.more-help-link { /* Link to more help */
+
+}
+
+
+
+.region-content { /* Wrapper for the actual page content */
+
+}
+
+
+
+ul.inline { /* List of links generated by theme_links() */
+
+  display: inline;
+
+  padding: 0;
+
+}
+
+ul.inline li {
+
+  display: inline;
+
+  list-style-type: none;
+
+  padding: 0 1em 0 0; /* LTR */
+
+}
+
+
+
+span.field-label { /* The inline field label used by the Fences module */
+
+  padding: 0 1em 0 0; /* LTR */
+
+}
+
+
+
+.item-list .pager { /* A list of page numbers when more than 1 page of content is available */
+
+  padding: 0;
+
+}
+
+.item-list .pager li { /* Each page number in the pager list */
+
+  padding: 0 0.5em;
+
+}
+
+
+
+.feed-icon { /* The link to the RSS or Atom feed for the current list of content */
+
+}
+
+
+
+.more-link { /* Aggregator, blog, and forum more link */
+
+}
+
+
+
+/*
+
+ * First sidebar (on left in LTR languages, on right in RTL)
+
+ *
+
+ * Remember to NOT add padding or margin to your .region-sidebar-first
+
+ * (see the layout.css file.)
+
+ */
+
+
+
+.region-sidebar-first {
+
+}
+
+
+
+/*
+
+ * Second sidebar (on right in LTR languages, on left in RTL)
+
+ *
+
+ * Remember to NOT add padding or margin to your .region-sidebar-second
+
+ * (see the layout.css file.)
+
+ */
+
+
+
+.region-sidebar-second {
+
+}
+
+
+
+/*
+
+ * Footer
+
+ */
+
+ 
+
+ .region-friend-link{background:#900 ;  clear:both; }
+ .region-friend-link p ,.region-friend-link .block{ margin:0px;}
+  .region-friend-link .friends_link{ height:50px; width:980px; margin:0 auto;}
+#footer { clear:both;  background:#800;  /*background:#900 url(../images/bottom_bg.png) repeat-x ;  */height:300px; background-position:0px 80px;
+
+
+
+
+
+}
+
+
+
+#footer_bottom{ width:980px; margin:0 auto; }
+
+
+
+/*
+
+ * Page bottom
+
+ */
+
+
+
+.region-bottom {clear:both; /* Wrapper for any blocks placed in the page bottom region background:#202020; */background:#202020; height:50px; line-height:50px; color:#FFF; 
+
+}
+
+.region-bottom a{ color:#FFF;}
+
+.region-bottom .block{ margin-bottom:0px;}
+
+.region-bottom #block-system-powered-by{ float:left;}
+
+#branding-social{ float:right;}
+
+#branding-social a, #author-description-social a, .author-profile .author-social li.tw a, .author-profile .author-social li.fb a, .author-profile .author-social li.gplus a, .the-pageviews {
+
+background: transparent url(../images/social.png) no-repeat scroll 0px 0px;
+
+}
+
+#branding-social li{ float:left; padding-top:10px; }
+
+
+
+#branding-social li.rss a { background-position: -200px -468px; }
+
+#branding-social li.share { position: relative; padding-right: 8px; }
+
+#branding-social li.share a.open_toolbox { background-position: -128px -540px; position: relative; z-index: 20; }
+
+#branding-social li.share .addthis_toolbox { top: 0; }
+
+#branding-social li.share ul { list-style: none; display: none; }
+
+#branding-social li.share ul li { float: none; }
+
+#branding-social li.share .open { border: 1px solid #bfbfbf; box-shadow: 0 0 2px rgba(128,128,128,.5); margin-left: -2px; left: 1px; }
+
+#branding-social li.share .open ul { display: block; padding-top: 36px; margin-top: -5px; padding-left: 5px; } 
+
+#branding-social li.share .open a.open_toolbox { margin-top: -1px; }
+
+#branding-social li.plus a { background-position: -272px -396px; }
+
+#branding-social li.tw a { background-position: -600px -72px; }
+
+#branding-social li.fb a { background-position: -674px 0px; }
+
+
+
+#branding-social li.rss a:hover { background-position: -164px -504px; }
+
+#branding-social li.share a.open_toolbox:hover { background-position: -92px -576px; }
+
+#branding-social li.plus a:hover { background-position: -232px -432px; }
+
+#branding-social li.tw a:hover { background-position: -562px -108px; }
+
+#branding-social li.fb a:hover { background-position: -637px -36px; }
+
+
+
+#branding-social li.li a { background: transparent url(../images/linkedin.png) no-repeat scroll 0px 0px; }
+
+#branding-social li.li a:hover { background-position: 0px -26px; }
+
+#branding-social a {
+
+display: block;
+
+height: 28px;
+
+margin-right: 6px;
+
+text-indent: -9999em;
+
+width: 28px;
+
+}
+#articlelist .txtlist li {
+margin-top: 0px;
+height: auto;
+padding: 8px 0 8px 0;
+border-bottom: 1px dotted #D8D8D8;
+list-style-type:circle;
+list-style-position:inside;
+}
+#articlelist .txtlist .datetime {
+float: right;
+display: inline-block;
+font-size: 11px;
+}

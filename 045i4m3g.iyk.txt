@@ -1,0 +1,358 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	deleted:    upload/sites/all/modules/yisi/thinkincourse/thinkincourse.info
+#	deleted:    upload/sites/all/modules/yisi/thinkincourse/thinkincourse.module
+#	deleted:    upload/sites/all/modules/yisi/thinkincourse/thinkincourse.pages.inc
+#	deleted:    upload/sites/all/modules/yisi/thinkincourse/tpl/course.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkincourse/tpl/course_detail.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkincourse/tpl/course_grid.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkincourse/tpl/course_list.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkincourse/tpl/video_list.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkindup/thinkindup.info
+#	deleted:    upload/sites/all/modules/yisi/thinkindup/thinkindup.module
+#	deleted:    upload/sites/all/modules/yisi/thinkinmenu/thinkinmenu.info
+#	deleted:    upload/sites/all/modules/yisi/thinkinmenu/thinkinmenu.module
+#	deleted:    upload/sites/all/modules/yisi/thinkinpremium/thinkinpremium.info
+#	deleted:    upload/sites/all/modules/yisi/thinkinpremium/thinkinpremium.module
+#	deleted:    upload/sites/all/modules/yisi/thinkinpremium/thinkinpremium.pages.inc
+#	deleted:    upload/sites/all/modules/yisi/thinkinpremium/tpl/premium.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkinusers/thinkinusers.info
+#	deleted:    upload/sites/all/modules/yisi/thinkinusers/thinkinusers.module
+#	deleted:    upload/sites/all/modules/yisi/thinkinusers/user-answers.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkinusers/users.pages.inc
+#	deleted:    upload/sites/all/modules/yisi/thinkinusers/users.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkinusers/users_block.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkinvideo/index.html
+#	deleted:    upload/sites/all/modules/yisi/thinkinvideo/js/index.html
+#	deleted:    upload/sites/all/modules/yisi/thinkinvideo/js/jwplayer.flash.swf
+#	deleted:    upload/sites/all/modules/yisi/thinkinvideo/js/jwplayer.html5.js
+#	deleted:    upload/sites/all/modules/yisi/thinkinvideo/js/jwplayer.js
+#	renamed:    upload/sites/all/modules/yisi/thinkinvideo/tpl/jw_player.tpl.php -> upload/sites/all/modules/yisi/thinkinvideo/tpl/guild.tpl.php
+#	renamed:    upload/sites/all/modules/yisi/thinkinvideo/thinkinvideo.info -> upload/sites/all/modules/yisi/thinkinvideo/yisi_guild.info
+#	renamed:    upload/sites/all/modules/yisi/thinkinvideo/thinkinvideo.module -> upload/sites/all/modules/yisi/thinkinvideo/yisi_guild.module
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   .gitignore
+#	modified:   upload/includes/module.inc
+#	deleted:    upload/sites/all/libraries/ckeditor/CHANGES.md
+#	deleted:    upload/sites/all/libraries/ckeditor/LICENSE.md
+#	deleted:    upload/sites/all/libraries/ckeditor/README.md
+#	deleted:    upload/sites/all/libraries/ckeditor/build-config.js
+#	modified:   upload/sites/all/libraries/ckeditor/ckeditor.js
+#	modified:   upload/sites/all/libraries/ckeditor/config.js
+#	modified:   upload/sites/all/libraries/ckeditor/contents.css
+#	modified:   upload/sites/all/libraries/ckeditor/lang/af.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ar.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/bg.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/bn.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/bs.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ca.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/cs.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/cy.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/da.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/de.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/el.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/en-au.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/en-ca.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/en-gb.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/en.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/eo.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/es.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/et.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/eu.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/fa.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/fi.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/fo.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/fr-ca.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/fr.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/gl.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/gu.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/he.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/hi.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/hr.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/hu.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/is.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/it.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ja.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ka.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/km.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ko.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ku.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/lt.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/lv.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/mk.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/mn.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ms.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/nb.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/nl.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/no.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/pl.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/pt-br.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/pt.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ro.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ru.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/sk.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/sl.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/sr-latn.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/sr.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/sv.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/th.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/tr.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/ug.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/uk.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/vi.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/zh-cn.js
+#	modified:   upload/sites/all/libraries/ckeditor/lang/zh.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/da.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/de.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/el.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/en.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/es.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/et.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/he.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/it.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/km.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/no.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/th.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/about/dialogs/about.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/clipboard/dialogs/paste.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/dialog/dialogDefinition.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/fakeobjects/images/spacer.gif
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/icons.png
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/image/dialogs/image.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/image/images/noimage.png
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/link/dialogs/anchor.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/link/dialogs/link.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/link/images/anchor.png
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/magicline/images/icon.png
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/pastefromword/filter/default.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/scayt/LICENSE.md
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/scayt/README.md
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/scayt/dialogs/options.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/scayt/dialogs/toolbar.css
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/ca.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/cs.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/cy.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/de.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/el.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/en.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/eo.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/et.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/fa.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/fi.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/fr.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/he.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/hr.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/it.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/ku.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/lv.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/nb.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/nl.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/no.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/pl.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/sk.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/sv.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/th.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/tr.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/ug.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/specialchar/dialogs/specialchar.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/table/dialogs/table.js
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/tabletools/dialogs/tableCell.js
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/wsc/LICENSE.md
+#	deleted:    upload/sites/all/libraries/ckeditor/plugins/wsc/README.md
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/wsc/dialogs/wsc.css
+#	modified:   upload/sites/all/libraries/ckeditor/plugins/wsc/dialogs/wsc.js
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/ajax.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/api.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/appendto.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/assets/inlineall/logo.png
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/assets/outputxhtml/outputxhtml.css
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/assets/posteddata.php
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/assets/sample.css
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/assets/sample.jpg
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/assets/uilanguages/languages.js
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/datafiltering.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/divreplace.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/index.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/inlineall.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/inlinebycode.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/dialog/assets/my_dialog.js
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/dialog/dialog.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/enterkey/enterkey.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/outputforflash.fla
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/outputforflash.swf
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/swfobject.js
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/htmlwriter/outputforflash.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/htmlwriter/outputhtml.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/magicline/magicline.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/toolbar/toolbar.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/plugins/wysiwygarea/fullpage.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/readonly.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/replacebyclass.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/replacebycode.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/sample.css
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/sample.js
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/sample_posteddata.php
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/tabindex.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/uicolor.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/uilanguages.html
+#	deleted:    upload/sites/all/libraries/ckeditor/samples/xhtmlstyle.html
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/dialog.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/dialog_ie.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/dialog_ie7.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/dialog_ie8.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/dialog_iequirks.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/dialog_opera.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/editor.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/editor_gecko.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/editor_ie.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/editor_ie7.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/editor_ie8.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/editor_iequirks.css
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/icons.png
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/images/arrow.png
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/images/close.png
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/images/mini.png
+#	deleted:    upload/sites/all/libraries/ckeditor/skins/moono/readme.md
+#	deleted:    upload/sites/all/libraries/ckeditor/styles.js
+#	modified:   upload/sites/all/modules/devel/devel.admin.inc
+#	modified:   upload/sites/all/modules/devel/devel.drush.inc
+#	modified:   upload/sites/all/modules/devel/devel.mail.inc
+#	modified:   upload/sites/all/modules/devel/devel.module
+#	modified:   upload/sites/all/modules/devel/devel.pages.inc
+#	modified:   upload/sites/all/modules/devel/devel.rules.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/devel_generate.drush.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/devel_generate.fields.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/devel_generate.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/devel_generate_batch.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/file.devel_generate.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/image.devel_generate.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/list.devel_generate.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/number.devel_generate.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/taxonomy.devel_generate.inc
+#	modified:   upload/sites/all/modules/devel/devel_generate/text.devel_generate.inc
+#	modified:   upload/sites/all/modules/devel/krumo/INSTALL
+#	modified:   upload/sites/all/modules/devel/krumo/LICENSE
+#	modified:   upload/sites/all/modules/devel/krumo/README
+#	modified:   upload/sites/all/modules/devel/krumo/TODO
+#	modified:   upload/sites/all/modules/devel/krumo/krumo.ini
+#	deleted:    upload/sites/all/modules/yisi/thinkinvideo/tpl/guild.tpl.php
+#	deleted:    upload/sites/all/modules/yisi/thinkinvideo/yisi_guild.info
+#	deleted:    upload/sites/all/modules/yisi/thinkinvideo/yisi_guild.module
+#	modified:   upload/sites/all/modules/yisi/yisi.info
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	database/
+#	nbproject/
+#	upload/sites/all/libraries/ckeditor/.htaccess
+#	upload/sites/all/libraries/ckeditor/CHANGES.html
+#	upload/sites/all/libraries/ckeditor/INSTALL.html
+#	upload/sites/all/libraries/ckeditor/LICENSE.html
+#	upload/sites/all/libraries/ckeditor/_samples/
+#	upload/sites/all/libraries/ckeditor/_source/
+#	upload/sites/all/libraries/ckeditor/adapters/
+#	upload/sites/all/libraries/ckeditor/ckeditor.asp
+#	upload/sites/all/libraries/ckeditor/ckeditor.pack
+#	upload/sites/all/libraries/ckeditor/ckeditor.php
+#	upload/sites/all/libraries/ckeditor/ckeditor_basic.js
+#	upload/sites/all/libraries/ckeditor/ckeditor_basic_source.js
+#	upload/sites/all/libraries/ckeditor/ckeditor_php4.php
+#	upload/sites/all/libraries/ckeditor/ckeditor_php5.php
+#	upload/sites/all/libraries/ckeditor/ckeditor_source.js
+#	upload/sites/all/libraries/ckeditor/images/
+#	upload/sites/all/libraries/ckeditor/lang/_languages.js
+#	upload/sites/all/libraries/ckeditor/lang/_translationstatus.txt
+#	upload/sites/all/libraries/ckeditor/lang/id.js
+#	upload/sites/all/libraries/ckeditor/plugins/a11yhelp/lang/
+#	upload/sites/all/libraries/ckeditor/plugins/adobeair/
+#	upload/sites/all/libraries/ckeditor/plugins/ajax/
+#	upload/sites/all/libraries/ckeditor/plugins/autogrow/
+#	upload/sites/all/libraries/ckeditor/plugins/bbcode/
+#	upload/sites/all/libraries/ckeditor/plugins/colordialog/
+#	upload/sites/all/libraries/ckeditor/plugins/devtools/
+#	upload/sites/all/libraries/ckeditor/plugins/div/
+#	upload/sites/all/libraries/ckeditor/plugins/docprops/
+#	upload/sites/all/libraries/ckeditor/plugins/find/
+#	upload/sites/all/libraries/ckeditor/plugins/flash/
+#	upload/sites/all/libraries/ckeditor/plugins/forms/
+#	upload/sites/all/libraries/ckeditor/plugins/iframe/
+#	upload/sites/all/libraries/ckeditor/plugins/iframedialog/
+#	upload/sites/all/libraries/ckeditor/plugins/link/images/anchor.gif
+#	upload/sites/all/libraries/ckeditor/plugins/liststyle/
+#	upload/sites/all/libraries/ckeditor/plugins/pagebreak/
+#	upload/sites/all/libraries/ckeditor/plugins/pastetext/
+#	upload/sites/all/libraries/ckeditor/plugins/placeholder/
+#	upload/sites/all/libraries/ckeditor/plugins/preview/
+#	upload/sites/all/libraries/ckeditor/plugins/showblocks/
+#	upload/sites/all/libraries/ckeditor/plugins/smiley/
+#	upload/sites/all/libraries/ckeditor/plugins/specialchar/lang/
+#	upload/sites/all/libraries/ckeditor/plugins/styles/
+#	upload/sites/all/libraries/ckeditor/plugins/stylesheetparser/
+#	upload/sites/all/libraries/ckeditor/plugins/tableresize/
+#	upload/sites/all/libraries/ckeditor/plugins/templates/
+#	upload/sites/all/libraries/ckeditor/plugins/uicolor/
+#	upload/sites/all/libraries/ckeditor/plugins/xml/
+#	upload/sites/all/libraries/ckeditor/skins/kama/
+#	upload/sites/all/libraries/ckeditor/skins/office2003/
+#	upload/sites/all/libraries/ckeditor/skins/v2/
+#	upload/sites/all/libraries/ckeditor/themes/
+#	upload/sites/all/libraries/jwplayer/player.swf
+#	upload/sites/all/libraries/plupload/
+#	upload/sites/all/libraries/tinymce/
+#	upload/sites/all/modules/devel/devel.pages.inc.2548666
+#	upload/sites/all/modules/wysiwyg/
+#	upload/sites/all/modules/yisi/yisi_club/
+#	upload/sites/all/modules/yisi/yisi_guild/
+#	upload/sites/all/themes/yisitheme/
+#	upload/sites/all/themes/zen/
+#	upload/sites/default/private_files/
+

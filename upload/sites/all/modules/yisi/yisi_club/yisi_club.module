@@ -1,0 +1,39 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function yisi_club_menu() {  
+  $items['club'] = array(
+    'title' => t('club'),
+    'description' => t('club'),
+    'page callback' => 'club',
+    'file' => 'club.pages.inc',
+    'access arguments' => array('club view'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function yisi_club_permission() {
+  return array(
+    'club view' =>  array(
+      'title' => t('club view'),
+    ),
+  );
+}
+/**
+ * hook_theme()
+ */
+
+function yisi_club_theme(){
+	return array(
+		'club' => array(
+        'template' => 'club',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'yisi_club') . '/tpl',
+		),
+	);
+}
