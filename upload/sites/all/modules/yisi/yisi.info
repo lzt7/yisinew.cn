@@ -1,0 +1,10 @@
+;$Id$
+
+name = yisi
+description = <a href="http://www.drupalla.com">猪跑啦</a> | <a href="http://www.thinkinsoft.com">ThinkinSoft</a> | <a href="http://www.wizcourse.com">为知课堂</a>.
+core = 7.x
+package = YiSi
+files[] = yisi.module
+
+;dependencies[] = autoload
+;php = 5.2

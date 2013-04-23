@@ -1,0 +1,24 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function  thinkinmenu_menu() {
+  // Admin settings for the site.
+  $items['bookmarks'] = array(
+    'title' => t('Bookmarks'),
+    'description' => t('Bookmarks'),
+    'page callback' => 'tbookmarks',
+    'access arguments' => 'thinkinmenu_bookmarks_access',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+
+function thinkinmenu_bookmarks_access() {
+  return (($GLOBALS['user']->uid == $account->uid) || user_access('administer users')) && $account->uid > 0;
+}
+
+function tbookmarks(){
+	drupal_goto('user/'.$GLOBALS['user']->uid.'/bookmakrs');
+}

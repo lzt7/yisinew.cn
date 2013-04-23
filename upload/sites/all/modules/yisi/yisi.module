@@ -1,0 +1,84 @@
+<?php
+
+function yisi_file_managed($fid)
+{
+	$result = "";
+	if($fid != '0'){
+		$query = db_select('file_managed', 'f')->fields('f', array('uri'))->condition('f.fid', $fid)->execute()->fetchAssoc();
+		$result = file_create_url($query['uri']);
+	}
+	return $result;
+}
+function yisi_file_name($fid)
+{
+	$result = "";
+	if($fid != '0'){
+		$query = db_select('file_managed', 'f')->fields('f', array('filename'))->condition('f.fid', $fid)->execute()->fetchAssoc();
+		$result = $query['filename'];
+	}
+	return $result;
+}
+function yisi_file_uri($fid)
+{
+	$result = "";
+	if($fid != '0'){
+		$query = db_select('file_managed', 'f')->fields('f', array('uri'))->condition('f.fid', $fid)->execute()->fetchAssoc();
+		$result = $query['uri'];
+	}
+	return $result;
+}
+
+
+/**
+ * Implements hook_block_info().
+ */
+function yisi_block_info() {
+  $blocks['catalogy_block'] = array(
+    'info' => t('Catalogy'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+/**
+ * Implements hook_block_view().
+ */
+function yisi_block_view($block_name = '') {
+  if ($block_name == 'catalogy_block') {
+    $content = catalogy(0);
+    $block = array(
+      'subject' => t('Catalogy'), 
+      'content' => $content,
+    );
+	}
+    return $block; 
+}
+
+function catalogy($parent = 0)
+{
+	$output = '<ul>';
+	$query = db_select('taxonomy_term_data','td');
+	$query->leftJoin('taxonomy_term_hierarchy','th','td.tid = th.tid');
+	$query->fields('td')->fields('th', array('parent'))
+		->condition('td.vid', '12')->condition('th.parent', $parent)->orderBy('weight', 'ASC')->orderBy('tid', 'DESC');
+	$query = $query->execute()->fetchAll();
+	foreach ($query as $ob)
+	{
+		$output .= '<li>';
+		$output .= l($ob -> name, 'taxonomy/term/'.$ob -> tid);
+		$p = db_select('taxonomy_term_hierarchy', 't')->fields('t')->condition('t.parent', $ob -> tid)->execute();
+		$num_of_results = $p->rowCount();
+		if($num_of_results > 0){
+			$output .= catalogy($ob -> tid);
+		}
+		$output .= '</li>';
+	}	
+	$output .= '</ul>';
+	return $output;
+}
+function yisi_views_counts($nid)
+{
+	$results = db_select('node_counter', 'n')->fields('n', array('totalcount'))->condition('n.nid', $nid)->execute()->fetchAll();
+	$count = 0;
+	foreach ($results as $ob){$count = $ob->totalcount;}
+	return $count;
+}

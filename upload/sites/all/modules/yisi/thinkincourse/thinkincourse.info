@@ -1,0 +1,10 @@
+;$Id$
+
+name = thinkincourse
+description = thinkincourse.
+core = 7.x
+package = http://www.thinkinsoft.com
+files[] = thinkincourse.module
+
+dependencies[] = thinkin
+;php = 5.2

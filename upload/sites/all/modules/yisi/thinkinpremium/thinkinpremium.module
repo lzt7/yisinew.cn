@@ -1,0 +1,80 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function  thinkinpremium_menu() {
+  $items['pricing'] = array(
+    'title' => t('Course Subscription'),
+    'description' => t('Course Subscription'),
+    'page callback' => 'pricing',
+    'file' => 'thinkinpremium.pages.inc',
+    //'access arguments' => TRUE,
+		'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['product/add/%/%'] = array (
+    'page callback' => 'premium_product_add',
+    'page arguments' => array(2,3),
+    'access arguments' => array('access content'), 
+    'file' => 'thinkinpremium.pages.inc',
+    'type' => MENU_CALLBACK,
+  );  
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function thinkinpremium_permission() {
+  return array(
+    'thinkinpremium view' =>  array(
+      'title' => t('thinkinpremium view'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme()
+ */
+function thinkinpremium_theme(){
+	return array(
+		'premium' => array(
+        'template' => 'premium',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'thinkinpremium') . '/tpl',
+		),
+	);
+}
+
+/**
+ * Implements hook_commerce_currency_info_alter()
+ */
+function thinkinpremium_commerce_currency_info_alter(&$currencies, $langcode) {
+  $currencies['CNY']['symbol'] = '¥';
+	$currencies['CNY']['symbol_placement'] = 'before';
+	$currencies['CNY']['code_placement'] = 'hidden' ;
+}
+
+
+/**
+ * Implementation of hook_rules_condition_info().
+ */
+function thinkinpremium_rules_condition_info() {
+  return array(
+    'thinkinpremium_condition_sp_validity' => array(
+      'label' => t('Subscription validity'),
+      'base' => 'thinkinpremium_condition_sp_validity',
+    ),
+  );
+}
+function thinkinpremium_condition_sp_validity(){
+	global $user;
+	$query=db_select('field_data_field_commerce_sp_validity','v')->fields('v',array('field_commerce_sp_validity_value'))->condition('v.entity_id', $user->uid)->execute()->fetchAssoc();
+	if(empty($query['field_commerce_sp_validity_value'])){return true;}
+	//判断当前日期是否大于有效期日期，如果大于，表示过期了。
+	if(time() > $query['field_commerce_sp_validity_value']){
+		return true;
+	}else{
+		return false;
+	}
+}

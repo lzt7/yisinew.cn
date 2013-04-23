@@ -1,0 +1,10 @@
+;$Id$
+
+name = Thinkin Users
+description = Thinkin用户模块.
+core = 7.x
+package = http://www.thinkinsoft.com
+files[] = thinkinusers.module
+
+dependencies[] = thinkin
+;php = 5.2

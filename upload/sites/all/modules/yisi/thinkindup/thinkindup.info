@@ -1,0 +1,10 @@
+;$Id$
+
+name = thinkindup
+description = 隐藏“编辑个人信息”时的一些没用信息，如语言选择，是否允许联系，是否允许发私信，时间选择等.仅超级管理员可见
+core = 7.x
+package = http://www.thinkinsoft.com
+files[] = thinkindup.module
+
+dependencies[] = thinkin
+;php = 5.2

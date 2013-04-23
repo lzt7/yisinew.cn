@@ -1,0 +1,10 @@
+;$Id$
+
+name = thinkinpremium
+description = thinkinpremium.
+core = 7.x
+package = http://www.thinkinsoft.com
+files[] = thinkinpremium.module
+
+dependencies[] = thinkin
+;php = 5.2

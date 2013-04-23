@@ -1,0 +1,10 @@
+;$Id$
+
+name = thinkinvideo
+description = thinkinvideo.
+core = 7.x
+package = http://www.thinkinsoft.com
+files[] = thinkinvideo.module
+
+dependencies[] = thinkin
+;php = 5.2

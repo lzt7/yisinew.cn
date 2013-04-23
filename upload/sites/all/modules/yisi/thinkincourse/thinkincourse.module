@@ -1,0 +1,278 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function  thinkincourse_menu() {
+  // Admin settings for the site.
+  $items['course'] = array(
+    'title' => t('course'),
+    'description' => t('course'),
+    'page callback' => 'course',
+    //'page arguments' => array('thinkin_form'),
+    'file' => 'thinkincourse.pages.inc',
+    'access arguments' => array('thinkincourse view'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['course/grid'] = array(
+    'title' => t('course'),
+    'description' => t('course'),
+    'page callback' => 'course',
+    'page arguments' => array(1),
+    'file' => 'thinkincourse.pages.inc',
+    'access arguments' => array('thinkincourse view'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['course/detail'] = array(
+    'title' => t('course'),
+    'description' => t('course'),
+    'page callback' => 'course',
+    'page arguments' => array(1),
+    'file' => 'thinkincourse.pages.inc',
+    'access arguments' => array('thinkincourse view'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['course/list'] = array(
+    'title' => t('course'),
+    'description' => t('course'),
+    'page callback' => 'course',
+    'page arguments' => array(1),
+    'file' => 'thinkincourse.pages.inc',
+    'access arguments' => array('thinkincourse view'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function thinkincourse_permission() {
+  return array(
+    'thinkincourse view' =>  array(
+      'title' => t('thinkincourse view'),
+    ),
+  );
+}
+
+/**
+ * hook_theme()
+ */
+
+function thinkincourse_theme(){
+	return array(
+		'course' => array(
+        'template' => 'course',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'thinkincourse') . '/tpl',
+		),
+		'course_list' => array(
+        'template' => 'course_list',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'thinkincourse') . '/tpl',
+		),
+		'course_grid' => array(
+        'template' => 'course_grid',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'thinkincourse') . '/tpl',
+		),
+		'course_detail' => array(
+        'template' => 'course_detail',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'thinkincourse') . '/tpl',
+		),
+		'video_list' => array(
+        'template' => 'video_list',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'thinkincourse') . '/tpl',
+		),
+	);
+}
+
+
+
+
+/**
+ * Implements hook_block_info().
+ */
+function thinkincourse_block_info() {
+  $blocks['course'] = array(
+    'info' => t('course'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+/**
+ * Implements hook_block_view().
+ */
+function thinkincourse_block_view($block_name = '') {
+  if ($block_name == 'course') {
+    $content = course_block();
+    $block = array(
+      //'subject' => t('Services'),
+      'content' => $content,
+    );
+	}
+  return $block; 
+}
+
+function course_block($range = 4){	
+	$output = '';
+	$query = db_select('node','n');
+	$query->leftJoin('field_data_field_image', 'i', 'n.nid = i.entity_id');
+	$query->leftJoin('field_data_field_video_type', 't', 'n.nid = t.entity_id');
+	$query->leftJoin('field_data_field_drupal_category', 'c', 'n.nid = c.entity_id');
+	$query->leftJoin('field_data_field_duration', 'd', 'n.nid = d.entity_id');
+	$query->fields('n')->fields('i')->fields('t')->fields('c')->fields('d');
+	$query->condition('n.status', 1)
+		->condition('n.type', 'drupal_video')
+		->range(0,$range);
+	$query->orderBy('created', 'DESC');
+	$objects = $query->execute()->fetchAll();
+	$rows = array();
+	foreach ($objects as $key=>$object) {
+		$row = array();
+		$row['nid'] = $object -> nid;
+		$row['title'] = l($object -> title, 'node/'.$object ->nid);
+		$row['image'] = l('<img src="'.thinkin_file_managed($object -> field_image_fid).'" title="'.$object -> title.'"/>', 'node/'.$object ->nid, array('html' => true,'attributes' => array('class' => array('thumbnail'))));
+		$type = '';
+		switch($object -> field_video_type_tid){
+			case 16:
+				$type .= l(' ', 'node/'.$object ->nid, array('html' => true,'attributes' => array('class' => array('free-video-badge-small'))));
+				break;
+			case 17:
+				$type .= l(' ', 'node/'.$object ->nid, array('html' => true,'attributes' => array('class' => array('new-video-badge-small'))));
+				break;
+		}
+		$row['type'] = $type;
+		$row['category'] = l(taxonomy_term_load($object -> field_drupal_category_tid)->name, 'taxonomy/term/'.$object -> field_drupal_category_tid);
+		$row['duration'] = $object -> field_duration_value . ' 分钟';
+		$row['created'] = $object -> created;
+		$rows[] = $row;
+	}
+	$output .= theme('course', array('rows' => $rows));
+	return $output;
+}
+
+//一个视频的时间
+function video_duration($video_id){	
+	$output = 0;	
+	$query = db_select('field_data_field_duration', 'd')->fields('d')->condition('d.entity_id', $video_id)->execute()->fetchAssoc();
+	if($query){
+		$output = $query['field_duration_value'];
+	}else{
+			$output = 0;
+	}
+	return $output . ' 分钟';
+}
+
+//一个系列的总时间
+function course_duration($course_id){	
+	$output = 0;
+	
+	$query = db_select('field_data_field_video_set', 's')->fields('s', array('field_video_set_nid'))->condition('s.entity_id', $course_id)->execute()->fetchAll();
+	
+	foreach ($query as $key=>$object) {
+		$node = node_load($object->field_video_set_nid);
+		if(!empty($node->field_duration['und']))
+		$output = $output + $node->field_duration['und'][0]['value'];
+		//print_r($node->field_duration);
+	}
+	return $output . ' 分钟';
+}
+
+//统计总时间，所有视频
+function thinkincourse_duration(){	
+	$output = 0;
+	
+	$query = db_select('field_data_field_duration', 'd')->fields('d')->execute()->fetchAll();
+	
+	foreach ($query as $key=>$object) {
+		$output = $output + $object->field_duration_value;
+	}
+	return $output . ' 分钟';
+}
+
+//统计总视频数
+function thinkincourse_video_count(){
+	$count = 0;
+	$results = db_select('node')->fields(NULL, array('nid'))->condition('type', 'drupal_video')->condition('status', 1)->execute()->fetchAll();
+	$count = count($results);
+	return $count;
+}
+
+function course_video_count($course_id){
+	$count = 0;
+	$results = db_select('field_data_field_video_set', 's')->fields('s', array('field_video_set_nid'))->condition('s.entity_id', $course_id)->execute()->fetchAll();
+	$count = count($results);
+	return $count;
+}
+function course_category($course_id){
+	$output = '';
+	$query = db_select('field_data_field_video_set', 's')->fields('s', array('field_video_set_nid'))->condition('s.entity_id', $course_id)->execute()->fetchAssoc();
+	$nid = $query['field_video_set_nid'];
+	$node = node_load($nid);
+	return l(taxonomy_term_load($node->field_drupal_category['und'][0]['tid'])->name, 'taxonomy/term/'.$node->field_drupal_category['und'][0]['tid']);
+}
+
+function course_version($course_id){
+	$output = '';
+	$query = db_select('field_data_field_video_set', 's')->fields('s', array('field_video_set_nid'))->condition('s.entity_id', $course_id)->execute()->fetchAssoc();
+	$nid = $query['field_video_set_nid'];
+	$node = node_load($nid);
+	$dot = '';
+	foreach ($node->field_drupal_version['und'] as $key=>$object) {
+		$output .= $dot.l(taxonomy_term_load($object['tid'])->name, 'taxonomy/term/'.$object['tid']);
+		$dot = ', ';
+	}
+	return $output;
+}
+
+//$video_id = 0 表示当前页不是node内容页，$video_id作用只是加action 的css
+function thinkincourse_video($course_id, $video_id = 0){
+	$output = '';
+	$query = db_select('field_data_field_video_set', 's')->fields('s', array('field_video_set_nid'))->condition('s.entity_id', $course_id)->execute()->fetchAll();
+	$rows = array();
+	foreach ($query as $key=>$object) {
+		$row = array();
+		$q = db_select('node', 'n')->fields('n')->condition('n.nid', $object->field_video_set_nid)->condition('status', 1)->execute()->fetchAssoc();
+		//$row = node_load($object->field_video_set_nid);
+		$row['nid'] = $q['nid'];
+		$row['title'] = $q['title'];
+		$row['duration'] = video_duration($q['nid']);
+		$row['type'] = video_type($q['nid']);
+		if($video_id != 0 && $video_id == $q['nid']){
+			$row['css'] = ' active';
+		}else{
+			$row['css'] = '';
+		}
+		$rows[] = $row;
+	}
+	$output .= theme('video_list', array('rows' => $rows));
+	return $output;
+}
+
+//视频类型，free，coming soon，fee
+function video_type($video_id){
+	$output = '';	
+	$query = db_select('field_data_field_video_type', 't')->fields('t')->condition('t.entity_id', $video_id)->execute()->fetchAssoc();
+	switch($query['field_video_type_tid']){
+		case 16:
+			$output = '<div class="free">免费</div>';
+			break;
+		case 86:
+			$output = '<div class="coming_soon">正在录制</div>';
+			break;
+		default:
+			$output = '';
+			break;	
+	}
+	return $output;
+}
+
+//查出当前视频是属于哪个course
+function thinkincourse_show_course_id($nid){
+	$query = db_select('field_data_field_video_set', 's')->fields('s', array('entity_id'))->condition('s.field_video_set_nid', $nid)->execute()->fetchAssoc();
+	$nid = $query['entity_id'];
+	$node = node_load($nid);
+	return $node -> nid;
+}
