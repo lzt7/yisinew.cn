@@ -35,5 +35,186 @@ function yisi_guild_theme(){
 				'variables' => array(),
 				'path' => drupal_get_path('module', 'yisi_guild') . '/tpl',
 		),
+		'topics' => array(
+        'template' => 'topics',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'yisi_guild') . '/tpl',
+		),
+		'guild_members' => array(
+        'template' => 'guild_members',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'yisi_guild') . '/tpl',
+		),
+		'guild_support_the_club' => array(
+        'template' => 'guild_support_the_club',
+				'variables' => array(),
+				'path' => drupal_get_path('module', 'yisi_guild') . '/tpl',
+		),
 	);
+}
+
+
+/**
+ * Implements hook_block_info().
+ */
+function yisi_guild_block_info() {
+  $blocks['new_guild'] = array(
+    'info' => t('New Guild'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['guild_info'] = array(
+    'info' => t('Guild Info'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['guild_members'] = array(
+    'info' => t('Guild Members'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['guild_support_the_club'] = array(
+    'info' => t('Guild support the Club'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+/**
+ * Implements hook_block_view().
+ */
+function yisi_guild_block_view($block_name = '') {
+  if ($block_name == 'new_guild') {
+    $content = new_guild_block();
+    $block = array(
+      'content' => $content,
+    );
+	}
+  if ($block_name == 'guild_info') {
+    $content = guild_info_block();
+    $block = array(
+      'content' => $content,
+    );
+  }
+  if ($block_name == 'guild_members') {
+    $content = guild_members_block();
+    $block = array(
+      'content' => $content,
+    );
+  }
+  if ($block_name == 'guild_support_the_club') {
+    $content = guild_support_the_club_block();
+    $block = array(
+      'content' => $content,
+    );
+  }
+  return $block; 
+}
+
+/*
+*显示最新公会
+*/
+function new_guild_block($limit = 6){	
+	$output = '';
+	$query = db_select('node','n');
+	$query->leftJoin('field_data_field_guild_logo', 'i', 'n.nid = i.entity_id');
+	$query->fields('n')->fields('i');
+	$query->condition('n.status', 1)
+		->condition('n.type', 'guild')
+		->range(0,$limit);
+	$query->orderBy('created', 'DESC');
+	$objects = $query->execute()->fetchAll();
+	$rows = array();
+	foreach ($objects as $key=>$object) {
+		$row = array();
+		$row['nid'] = $object -> nid;
+		$row['title'] = l($object -> title, 'node/'.$object ->nid);
+		$row['image'] = l('<img src="'.image_style_url('guild_logo', yisi_file_uri($object -> field_guild_logo_fid)).'" title="'.$object -> title.'"/>', 'node/'.$object ->nid, array('html' => true,'attributes' => array('class' => array('thumbnail'))));
+		$row['created'] = $object -> created;
+		$rows[] = $row;
+	}
+	$output .= theme('guild', array('rows' => $rows));
+	return $output;
+}
+
+/*
+*显示公会信息
+*/
+function guild_info_block(){
+	$node = menu_get_object();
+
+	$output = '<div class="guild_info clearfix">';
+	$output .= '<div class="guild_logo">'.l('<img src="'.image_style_url('guild_logo', yisi_file_uri($node-> field_guild_logo['und'][0]['fid'])).'" title="'.$node-> title.'"/>', 'node/'.$node ->nid, array('html' => true,'attributes' => array('class' => array('thumbnail')))).'</div>';
+	$output .= '<div class="guild_desc">';
+  $output .= '  <h3>' . $node-> title . '</h3>';
+  $output .= '  <p><span class="f1">' . $node-> body['und'][0]['value'] . '</span></p>';
+	$output .= '</div></div>';
+	return $output;
+}
+
+
+function yisi_guild_show_guild_topics(){
+	$guild = menu_get_object();
+	$output = '';
+	$query = db_select("og_membership", "ogm")->extend('PagerDefault');
+	$query->condition("ogm.gid", $guild->nid, "=");
+	$query->condition("ogm.entity_type", 'node', "=")->limit(20);
+	$query->fields("ogm", array("entity_type", "etid"));
+	$objects = $query->execute()->fetchAll();
+	foreach ($objects as $key=>$object) {
+		$node = node_load($object->etid);
+		$row = array();
+		$row['nid'] = $node -> nid;
+		$row['title'] = l($node -> title, 'node/'.$node ->nid);
+		if(isset($node -> field_guild_logo_fid)){
+		$row['image'] = l('<img src="'.image_style_url('guild_logo', yisi_file_uri($node -> field_guild_logo_fid['und'][0]['fid'])).'" title="'.$node -> title.'"/>', 'node/'.$node ->nid, array('html' => true,'attributes' => array('class' => array('thumbnail'))));
+    }
+    $row['description'] = drupal_substr(check_markup($node -> body['und'][0]['value'], $node -> body['und'][0]['format'], FALSE), 0, 120);
+		$row['created'] = $node -> created;
+		$rows[] = $row;
+	}	
+	$output .= theme('topics', array('rows' => $rows));
+	$output .= theme('pager');
+	return $output;
+}
+
+
+function guild_members_block(){
+	$guild = menu_get_object();
+	$output = '';
+	$query = db_select("og_membership", "ogm");
+	$query->condition("ogm.gid", $guild->nid, "=");
+	$query->condition("ogm.entity_type", 'user', "=");
+	$query->fields("ogm", array("entity_type", "etid"));
+	$objects = $query->execute()->fetchAll();
+	foreach ($objects as $key=>$object) {
+		$user = user_load($object->etid);
+		$row = array();
+		$row['uid'] = $user -> uid;
+		//$row['name'] = l($user -> name, 'user/'.$user -> uid);
+    $row['name'] = $user -> name;
+		$rows[] = $row;
+	}	
+	$output .= theme('guild_members', array('rows' => $rows));
+	return $output;
+}
+function guild_support_the_club_block(){
+  $guild = menu_get_object();
+	$output = '';
+	$query = db_select("og_membership", "ogm");
+	$query->condition("ogm.etid", $guild->nid, "=");
+	$query->condition("ogm.entity_type", 'node', "=");
+	$query->condition("ogm.field_name", 'field_support_the_club', "=");
+	$query->fields("ogm", array("entity_type", "etid", "gid"));
+	$objects = $query->execute()->fetchAll();
+	foreach ($objects as $key=>$object) {
+		$node = node_load($object->gid);
+    //$fields = field_get_items('node', $node, 'field_image');
+    $content = field_view_field('node', $node, 'field_image', array('label'=>'hidden', 'settings' => array('image_style' => 'guild_logo')));
+
+		$row = array();
+		$row['nid'] = $node -> nid;
+		$row['title'] = l($node -> title, 'node/'.$node ->nid);
+		$row['image'] = render($content);
+		$row['created'] = $node -> created;
+		$rows[] = $row;
+	}	
+	$output .= theme('guild_support_the_club', array('rows' => $rows));
+	return $output;
 }

@@ -82,3 +82,12 @@ function yisi_views_counts($nid)
 	foreach ($results as $ob){$count = $ob->totalcount;}
 	return $count;
 }
+
+
+function yisi_comment_counts($nid)
+{
+	$results = db_select('node_comment_statistics', 'c')->fields('c', array('comment_count'))->condition('c.nid', $nid)->execute()->fetchAll();
+	$count = 0;
+	foreach ($results as $ob){$count = $ob->comment_count;}
+	return $count;
+}

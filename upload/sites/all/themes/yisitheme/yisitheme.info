@@ -13,8 +13,7 @@
 
 screenshot  = screenshot.png
 name        = 意思网主题
-description = 制作: 分头诗人 <a href="http://www.drupalla.com" target="_blank">猪跑啦</a> | <a href="http://www.thinkinsoft.com" target="_blank">ThinkinSoft</a> | <a href="http://www.wizcourse.com" target="_blank">为知课堂</a>
-
+description = 意思网主题
 
 
 ; This theme is compatible with Drupal 7 core. And it is a sub-theme of Zen.

@@ -222,5 +222,13 @@ function yisitheme_preprocess_block(&$variables, $hook) {
   //if ($variables['block_html_id'] == 'block-system-main') {
   //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('block__no_wrapper'));
   //}
+}*/
+function yisitheme_preprocess_page(&$variables, $hook) {
+  //Add multiple suggestions for pages based on content type  
+  if(isset($variables['node']->type)){
+    if ($variables['node']->type != "") 
+	 {
+		$variables['theme_hook_suggestions'][] =  'page__type__' .  $variables['node']->type;		
+	 }
+ }  
 }
-// */

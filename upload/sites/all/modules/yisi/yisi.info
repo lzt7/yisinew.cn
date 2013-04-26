@@ -1,5 +1,5 @@
 name = 意思网基础模块
-description = 意思网基础模块。<br><a href="http://www.drupalla.com" target="_blank">猪跑啦</a> | <a href="http://www.thinkinsoft.com" target="_blank">ThinkinSoft</a> | <a href="http://www.wizcourse.com" target="_blank">为知课堂</a>
+description = 意思网基础模块。
 core = 7.x
 package = YiSi
 files[] = yisi.module
